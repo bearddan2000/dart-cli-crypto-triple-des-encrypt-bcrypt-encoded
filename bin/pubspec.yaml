@@ -6,5 +6,6 @@ environment:
 
 dependencies:
   dargon2: ^2.1.0
+  dbcrypt: ^1.0.0
   steel_crypt: ^1.5.4
   dart_des: ^1.0.0

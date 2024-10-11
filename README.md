@@ -1,4 +1,4 @@
-# dart-cli-crypto-triple-des-encrypt-scrypt-encoded
+# dart-cli-crypto-triple-des-encrypt-bcrypt-encoded
 
 ## Description
 Comparing passwords with one-way hashes.

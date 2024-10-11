@@ -1,12 +1,11 @@
+import 'package:dbcrypt/dbcrypt.dart';
+import 'dart:convert';
 import 'package:dargon2/dargon2.dart';
 import 'package:convert/convert.dart';
-import 'dart:convert';
 import 'package:dart_des/dart_des.dart';
 import 'package:steel_crypt/steel_crypt.dart';
 
-final salt = CryptKey().genDart(16);
-final passCrypt = PassCrypt('SHA-256/HMAC/PBKDF2');
-final s = Salt.newSalt();
+final salt = new DBCrypt().gensalt();
 String key = '123456781234567812345678'; // 24-byte
 List<int> iv = [1, 2, 3, 4, 5, 6, 7, 8];
 
@@ -25,7 +24,7 @@ verify(psw1, psw2, hashed) {
 hash(psw) {
   print("[HASH] plainPassword: $psw");
   psw = encrypt(psw);
-  var hashed = passCrypt.hashPass(salt, psw);
+  var hashed = new DBCrypt().hashpw(psw, salt);
   print("[HASH] hashedPassword: $hashed");
   return hashed;
 }
